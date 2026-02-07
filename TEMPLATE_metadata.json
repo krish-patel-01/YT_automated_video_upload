@@ -1,0 +1,14 @@
+{
+  "title": "Replace this with your video title (max 100 characters)",
+  "description": "Replace this with your video description.\n\nYou can add multiple paragraphs!\n\nTips:\n- Describe what the video is about\n- Add timestamps if needed\n- Include links\n- Use keywords for SEO\n\nMax 5000 characters.",
+  "tags": [
+    "tag1",
+    "tag2",
+    "tag3",
+    "add more tags",
+    "for better SEO"
+  ],
+  "category_id": "25",
+  "privacy_status": "private",
+  "made_for_kids": false
+}

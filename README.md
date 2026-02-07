@@ -107,16 +107,49 @@ On the first run:
 
 ### Video Metadata
 
-#### Option 1: Use Metadata Files (Recommended)
+#### Option 1: Use Simple Text Files (Recommended - Easiest!)
 
-Create a JSON file alongside your video with the `_metadata.json` suffix:
+Create a text file alongside your video with the `_metadata.txt` suffix:
+
+**Example: `my_video.mp4` → `my_video_metadata.txt`**
+
+```
+TITLE: My Awesome Video
+
+DESCRIPTION: This is a detailed description of my video.
+You can write multiple lines here!
+
+Add any details you want about the video.
+
+TAGS: tutorial, awesome, youtube
+
+PRIVACY: private
+
+CATEGORY: 22
+
+MADE_FOR_KIDS: no
+```
+
+**Format Details:**
+- **TITLE:** Video title (max 100 characters)
+- **DESCRIPTION:** Video description (max 5000 characters, multiple lines supported)
+- **TAGS:** Comma-separated list of tags
+- **PRIVACY:** `public`, `private`, or `unlisted`
+- **CATEGORY:** YouTube category ID (see list below)
+- **MADE_FOR_KIDS:** `yes` or `no`
+
+**Missing Fields:** Any field not specified will use defaults from `config.json`
+
+#### Option 2: Use JSON Files (Advanced)
+
+For users comfortable with JSON, you can still use `_metadata.json`:
 
 **Example: `my_video.mp4` → `my_video_metadata.json`**
 
 ```json
 {
   "title": "My Awesome Video",
-  "description": "This is a detailed description of my video.\n\nWith multiple paragraphs!",
+  "description": "This is a detailed description",
   "tags": ["tutorial", "awesome", "youtube"],
   "category_id": "22",
   "privacy_status": "private",
@@ -124,7 +157,7 @@ Create a JSON file alongside your video with the `_metadata.json` suffix:
 }
 ```
 
-#### Option 2: Use Default Metadata
+#### Option 3: Use Defaults
 
 If no metadata file exists, the system will use defaults from `config.json`:
 

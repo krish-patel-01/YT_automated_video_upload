@@ -140,15 +140,17 @@ def move_video_file(source_path: str, destination_dir: str) -> bool:
         shutil.move(source_path, destination_path)
         logging.info(f"Moved file to {destination_path}")
         
-        # Also move metadata file if it exists
-        metadata_path = source_path.replace(Path(source_path).suffix, '_metadata.json')
-        if os.path.exists(metadata_path):
-            metadata_dest = destination_path.replace(Path(destination_path).suffix, '_metadata.json')
-            try:
-                shutil.move(metadata_path, metadata_dest)
-                logging.info(f"Moved metadata to {metadata_dest}")
-            except Exception as e:
-                logging.warning(f"Failed to move metadata file: {e}")
+        # Also move metadata files if they exist (both .txt and .json)
+        base_path = source_path.replace(Path(source_path).suffix, '')
+        for metadata_ext in ['_metadata.txt', '_metadata.json']:
+            metadata_path = base_path + metadata_ext
+            if os.path.exists(metadata_path):
+                metadata_dest = destination_path.replace(Path(destination_path).suffix, '') + metadata_ext
+                try:
+                    shutil.move(metadata_path, metadata_dest)
+                    logging.info(f"Moved metadata to {metadata_dest}")
+                except Exception as e:
+                    logging.warning(f"Failed to move metadata file: {e}")
         
         return True
         
@@ -275,7 +277,10 @@ def main():
             config.metadata_file_suffix,
             config.default_title_template,
             config.default_description,
-            config.default_tags
+            config.default_tags,
+            config.default_category,
+            config.default_privacy,
+            config.made_for_kids
         )
         
         # Load processed videos
