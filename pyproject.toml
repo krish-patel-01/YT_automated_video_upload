@@ -1,0 +1,19 @@
+[project]
+name = "youtube-auto-upload-automation"
+version = "0.1.0"
+description = "Automated YouTube video upload system with directory monitoring and metadata integration"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "google-api-python-client>=2.110.0",
+    "google-auth-oauthlib>=1.2.0",
+    "google-auth-httplib2>=0.2.0",
+    "watchdog>=3.0.0",
+]
+
+[project.scripts]
+youtube-automation = "youtube_auto_upload_automation.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

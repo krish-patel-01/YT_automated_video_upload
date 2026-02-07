@@ -1,0 +1,37 @@
+# Python-generated files
+__pycache__/
+./youtube_auto_upload_automation/__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Configuration files
+config.json
+
+# YouTube API credentials
+client_secrets.json
+credentials.json
+token.json
+*.json-oauth2
+
+# Logs
+logs/
+*.log
+
+# Processed videos tracking
+processed_videos.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

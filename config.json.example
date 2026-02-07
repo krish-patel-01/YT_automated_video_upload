@@ -1,0 +1,42 @@
+{
+  "youtube_api": {
+    "client_secrets_file": "client_secrets.json",
+    "token_file": "token.json",
+    "scopes": ["https://www.googleapis.com/auth/youtube.upload"]
+  },
+  "monitoring": {
+    "watch_directories": [
+      "C:\\Users\\ADMIN\\Videos\\ToUpload",
+      "D:\\RenderOutput"
+    ],
+    "supported_extensions": [".mp4", ".mov", ".avi", ".mkv", ".wmv", ".flv"],
+    "check_interval_seconds": 5,
+    "min_file_size_mb": 1
+  },
+  "upload_settings": {
+    "default_privacy": "private",
+    "default_category": "25",
+    "auto_publish": false,
+    "made_for_kids": false,
+    "notify_subscribers": true
+  },
+  "metadata": {
+    "metadata_file_suffix": "_metadata.json",
+    "default_title_template": "{filename}",
+    "default_description": "Uploaded automatically",
+    "default_tags": ["automated upload"]
+  },
+  "processing": {
+    "move_after_upload": true,
+    "processed_directory": "C:\\Users\\ADMIN\\Videos\\Uploaded",
+    "failed_directory": "C:\\Users\\ADMIN\\Videos\\FailedUploads",
+    "track_processed_videos": true,
+    "processed_videos_file": "processed_videos.txt"
+  },
+  "logging": {
+    "log_level": "INFO",
+    "log_file": "logs/youtube_automation.log",
+    "max_log_size_mb": 10,
+    "backup_count": 5
+  }
+}
