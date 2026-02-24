@@ -100,26 +100,49 @@ class Config:
         """Check if subscribers should be notified."""
         return self.config['upload_settings']['notify_subscribers']
     
-    # Metadata settings
     @property
-    def metadata_file_suffix(self) -> str:
-        """Get suffix for metadata files."""
-        return self.config['metadata']['metadata_file_suffix']
-    
+    def video_language(self) -> str:
+        """Get the video language setting."""
+        return self.config['upload_settings'].get('video_language', 'en')
+
     @property
-    def default_title_template(self) -> str:
-        """Get default title template."""
-        return self.config['metadata']['default_title_template']
-    
+    def title_description_language(self) -> str:
+        """Get the title and description language setting."""
+        return self.config['upload_settings'].get('title_description_language', 'en')
+
+    # Excel queue file
+    @property
+    def excel_file(self) -> str:
+        """Get path to the Excel upload queue file."""
+        return self.config.get('excel_file', 'upload_queue.xlsx')
+
+    # Groq settings
+    @property
+    def groq_api_key(self) -> str:
+        """Get the Groq API key."""
+        return self.config['groq']['api_key']
+
+    @property
+    def groq_model(self) -> str:
+        """Get the Groq model name."""
+        return self.config['groq'].get('model', 'compound')
+
+    # Default metadata for news channel
     @property
     def default_description(self) -> str:
-        """Get default description."""
-        return self.config['metadata']['default_description']
-    
+        """Get default description for news videos."""
+        return self.config['upload_settings'].get(
+            'default_description',
+            'Stay updated with the latest news. Subscribe for daily news updates.'
+        )
+
     @property
     def default_tags(self) -> List[str]:
-        """Get default tags."""
-        return self.config['metadata']['default_tags']
+        """Get default tags for news videos."""
+        return self.config['upload_settings'].get(
+            'default_tags',
+            ['news', 'breaking news', 'latest news', 'today news', 'news update']
+        )
     
     # Processing settings
     @property

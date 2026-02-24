@@ -109,7 +109,9 @@ class YouTubeUploader:
         category_id: str = "22",
         privacy_status: str = "private",
         made_for_kids: bool = False,
-        notify_subscribers: bool = True
+        notify_subscribers: bool = True,
+        video_language: str = "en",
+        title_description_language: str = "en"
     ) -> Optional[str]:
         """Upload a video to YouTube.
         
@@ -122,6 +124,8 @@ class YouTubeUploader:
             privacy_status: Privacy status (public, private, unlisted)
             made_for_kids: Whether video is made for kids
             notify_subscribers: Whether to notify subscribers
+            video_language: Language of the video audio (default: en)
+            title_description_language: Language of title and description (default: en)
             
         Returns:
             Video ID if successful, None otherwise
@@ -140,7 +144,9 @@ class YouTubeUploader:
                 'title': title[:100],  # YouTube max title length
                 'description': description[:5000],  # YouTube max description length
                 'tags': tags[:500],  # YouTube max tags
-                'categoryId': category_id
+                'categoryId': category_id,
+                'defaultLanguage': title_description_language,
+                'defaultAudioLanguage': video_language
             },
             'status': {
                 'privacyStatus': privacy_status,
